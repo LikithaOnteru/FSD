@@ -1,0 +1,18 @@
+{
+  "name": "node-js-routes-student-example",
+  "version": "1.0.0",
+  "description": "Pure Node.js REST API with student controllers (GET, POST, PUT, DELETE) without external frameworks.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "http",
+    "routes",
+    "controller",
+    "rest-api"
+  ],
+  "author": "",
+  "license": "ISC"
+}

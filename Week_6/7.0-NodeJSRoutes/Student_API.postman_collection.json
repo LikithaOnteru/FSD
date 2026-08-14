@@ -1,0 +1,281 @@
+{
+  "info": {
+    "_postman_id": "f8a9e2d1-4321-4def-9876-123456789abc",
+    "name": "7.0 Node.js Routes - Student API",
+    "description": "Postman collection for testing the Pure Node.js Student REST API (GET, POST, PUT, DELETE, Path Parameters, and Request Query Parameters).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. GET All Students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ]
+        },
+        "description": "Fetches all 50 student records."
+      },
+      "response": []
+    },
+    {
+      "name": "2. GET Student by Path Parameter ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/:id",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1",
+              "description": "Student ID path parameter"
+            }
+          ]
+        },
+        "description": "Fetches a single student record by path parameter ID."
+      },
+      "response": []
+    },
+    {
+      "name": "3. GET Filter by Course (Request Param)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students?course=Computer Science",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ],
+          "query": [
+            {
+              "key": "course",
+              "value": "Computer Science",
+              "description": "Filter students by course name"
+            }
+          ]
+        },
+        "description": "Filters students using request query parameter 'course'."
+      },
+      "response": []
+    },
+    {
+      "name": "4. GET Filter by Grade (Request Param)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students?grade=A",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ],
+          "query": [
+            {
+              "key": "grade",
+              "value": "A",
+              "description": "Filter students by grade"
+            }
+          ]
+        },
+        "description": "Filters students using request query parameter 'grade'."
+      },
+      "response": []
+    },
+    {
+      "name": "5. GET Search by Name (Request Param)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/search?name=Priya",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "Priya",
+              "description": "Search student by name"
+            }
+          ]
+        },
+        "description": "Searches for a student by name using request query parameter on /api/students/search."
+      },
+      "response": []
+    },
+    {
+      "name": "6. GET Combined Filter (Course, Grade, Limit)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students?course=Data Science&grade=A&limit=5",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ],
+          "query": [
+            {
+              "key": "course",
+              "value": "Data Science",
+              "description": "Course parameter"
+            },
+            {
+              "key": "grade",
+              "value": "A",
+              "description": "Grade parameter"
+            },
+            {
+              "key": "limit",
+              "value": "5",
+              "description": "Limit maximum records returned"
+            }
+          ]
+        },
+        "description": "Applies multiple request parameters (course, grade, limit) simultaneously."
+      },
+      "response": []
+    },
+    {
+      "name": "7. POST Create New Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Kavya Patel\",\n  \"age\": 23,\n  \"grade\": \"A\",\n  \"course\": \"Cyber Security\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ]
+        },
+        "description": "Creates a new student record."
+      },
+      "response": []
+    },
+    {
+      "name": "8. PUT Update Student by ID",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"grade\": \"A\",\n  \"course\": \"Advanced Computer Science\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/students/:id",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1",
+              "description": "Student ID to update"
+            }
+          ]
+        },
+        "description": "Updates fields of an existing student by ID."
+      },
+      "response": []
+    },
+    {
+      "name": "9. DELETE Student by ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/:id",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "2",
+              "description": "Student ID to delete"
+            }
+          ]
+        },
+        "description": "Deletes a student record by ID."
+      },
+      "response": []
+    }
+  ]
+}
